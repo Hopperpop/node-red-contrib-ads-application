@@ -1,0 +1,91 @@
+<script type="text/javascript">
+    RED.nodes.registerType('ads-beckhoff-devicemanager',{
+        paletteLabel: 'ADS - Device manager',
+        category: 'TwinCAT ADS',
+        color: '#3FADB5',
+        defaults: {
+            name: {value:""},
+            topic: {value:""},
+            connection: {value:"", type:"ads-client-connection", required: true},
+        },
+        inputs:1,
+        outputs:1,
+        icon: 'font-awesome/fa-microchip',
+        label: function() {
+            return this.name||"Device manager";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="ads-beckhoff-devicemanager">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-connection"><i class="fa fa-file-code-o"></i> ADS</label>
+        <input id="node-input-connection">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tag"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="modules">
+    </div>
+
+</script>
+
+<script type="text/html" data-help-name="ads-beckhoff-devicemanager">
+    <p>A node to read data from Beckhoff's device manager.</p>
+
+    <h3>Inputs</h3>
+        <ol class="node-ports"></ol>
+            <dl class="message-properties">
+                <dt class="optional">topic<span class="property-type">string | string array</span></dt>
+                <dd>Topic(s) to read from the device manager. See details for syntax.</dd>
+            </dl>
+        </ol>
+
+    <h3>Outputs</h3>
+        <ol class="node-ports">
+            <dl class="message-properties">
+                <dt>payload <span class="property-type">object</span></dt>
+                <dd>An object containing the values.</dd>
+            </dl>
+        </ol>
+
+    <h3>Details</h3>
+        <p> This node will read a single, multiple or all variables from Beckhoffs IPC device manager. The device manager is split up in modules. 
+            Each module has a type and a name. 
+            The full path to a variable has the following syntax: <code>ModuleType.ModuleName.VariableName</code>. 
+            When the moduletype matches the modulename, the path is shortened to <code>ModuleType.VariableName</code> for easy acces.
+            Use <code>msg.topic</code> to define what to read:
+        </p>
+        <ol class="node-ports"></ol>
+            <dl class="message-properties">
+                <dt>""<span class="property-type">string | null</span></dt>
+                <dd>Reads all modules and variables.</dd>
+                <dt>"modules"<span class="property-type">string</span></dt>
+                <dd>Returns a list with all modules information (name, type, id).</dd>
+                <dt class="optional">ModuleType<span class="property-type">string</span></dt>
+                <dd>Returns all variables of a specific module type (could be more than one module). Examples:
+                    <ul>
+                        <li>"General"</li>
+                        <li>"Nic"</li>
+                        <li>"Time"</li>
+                        <li>"TwinCAT"</li>
+                        <li>...</li>
+                    </ul>
+                </dd>
+                <dt class="optional">ModuleType.(ModuleName)<span class="property-type">string</span></dt>
+                <dd>Returns all variables of a single module. Example: "CPU.CPU0".
+                <dt class="optional">ModuleType.(ModuleName).VariableName<span class="property-type">string</span></dt>
+                <dd>Returns a single variable of a single module. Example: "CPU.CPU0.CPU_Frequency".
+                <dt class="optional">ModuleType.*.VariableName<span class="property-type">string</span></dt>
+                <dd>Use a wildcard to return a variable of all modules with the same type. Example: "Nic.*.MAC_Adress"</dd>
+                <dt class="optional">[ModuleType.(ModuleName).VariableName]<span class="property-type">string array</span></dt>
+                <dd>Use an array to request multiple variables togheter.</dd>
+            </dl>
+        </ol>
+</script>

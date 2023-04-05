@@ -1,0 +1,40 @@
+{
+  "name": "node-red-contrib-ads-application",
+  "version": "0.1.0-beta.0",
+  "description": "node-red-contrib-ads-client application extention",
+  "keywords": [
+    "node-red",
+    "ADS",
+    "Beckhoff",
+    "TwinCat",
+    "plc",
+    "MDP",
+    "IPC"
+  ],
+  "author": "Hopperpop <Hopperpop.git@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/Hopperpop/node-red-contrib-ads-application",
+  "bugs": {
+    "url": "https://github.com/Hopperpop/node-red-contrib-ads-application/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hopperpop/node-red-contrib-ads-application"
+  },
+  "dependencies": {
+    "node-red-contrib-ads-client": "^1.1.1"
+  },
+  "devDependencies": {},
+  "node-red": {
+    "nodes": {
+      "ads-beckhoff-devicemanager": "src/ads-beckhoff-devicemanager.js"
+    }
+  },
+  "files": [
+    "src/",
+    "README.md"
+  ],
+  "examples": [
+    "Ads-beckhoff-devicemanager.json"
+  ]
+}
