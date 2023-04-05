@@ -248,11 +248,11 @@ module.exports = class Ads_BeckhoffDeviceManager {
               'moduleTypeStr' : moduleTypeStr,
               'moduleName'    : moduleName,
             };
-            this.tempList[item-1] = elem;
+            tempList[item-1] = elem;
           }))
   
           //Fake general module
-          this.tempList[0] = {
+          tempList[0] = {
             'moduleType'    : 0, 
             'moduleId'      : 0,
             'moduleTypeStr' : "General",
