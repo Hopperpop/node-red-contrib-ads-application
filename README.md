@@ -1,3 +1,22 @@
+# node-red-contrib-ads-application
+[![NPM](https://img.shields.io/npm/l/node-red-contrib-ads-application)](https://github.com/Hopperpop/node-red-contrib-ads-application/blob/master/LICENSE)
+[![GitHub](https://img.shields.io/badge/View%20on-GitHub-brightgreen)](https://github.com/Hopperpop/node-red-contrib-ads-application)
+[![npm](https://img.shields.io/npm/v/node-red-contrib-ads-application)](https://www.npmjs.com/package/node-red-contrib-ads-application)
+
+Application extention for [node-red-contrib-ads-client](https://flows.nodered.org/node/node-red-contrib-ads-client). The goal is to create nodes that uses ADS to communicate with other ADS modules than the standard plc variables.
+
+Currently implemented:
+- Read Beckhoffs IPC device manager
+
+Future nodes:
+- CoE communication
+- IO-Link communication
+- Event logger
+- ...
+
+![node-red-contrib-ads-application](https://user-images.githubusercontent.com/11853634/230030194-b3fe74c5-64dc-4e8c-9efa-c849e241b6d3.png)
+
+
 # License
 Copyright (c) 2023 Hopperpop
 
