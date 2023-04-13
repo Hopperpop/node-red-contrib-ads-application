@@ -225,7 +225,10 @@ module.exports = class Ads_BeckhoffDeviceManager {
         
         //Clear previous list
         this.moduleList = [];
-  
+        
+        //Create temp list to store result promise and only store when fully succesfull
+        let tempList = [];
+
         //Read all modules
         try {
   
@@ -245,17 +248,18 @@ module.exports = class Ads_BeckhoffDeviceManager {
               'moduleTypeStr' : moduleTypeStr,
               'moduleName'    : moduleName,
             };
-            this.moduleList[item-1] = elem;
+            tempList[item-1] = elem;
           }))
   
           //Fake general module
-          this.moduleList[0] = {
+          tempList[0] = {
             'moduleType'    : 0, 
             'moduleId'      : 0,
             'moduleTypeStr' : "General",
             'moduleName'    : "General",
           }
-  
+
+          this.moduleList = tempList;
           return this.moduleList;
   
         } catch (err) {

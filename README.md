@@ -7,6 +7,7 @@ Application extention for [node-red-contrib-ads-client](https://flows.nodered.or
 
 Currently implemented:
 - Read Beckhoffs IPC device manager
+- Subscribe to ads logger
 
 Future nodes:
 - CoE communication
@@ -14,7 +15,11 @@ Future nodes:
 - Event logger
 - ...
 
-![node-red-contrib-ads-application](https://user-images.githubusercontent.com/11853634/230030194-b3fe74c5-64dc-4e8c-9efa-c849e241b6d3.png)
+**ads-beckhoff-devicemanager**
+![ads-beckhoff-devicemanager](https://user-images.githubusercontent.com/11853634/230030194-b3fe74c5-64dc-4e8c-9efa-c849e241b6d3.png)
+
+**ads-logger**
+![ads-logger](https://user-images.githubusercontent.com/11853634/231721204-2c15c3d8-1126-47b3-bc28-3019606f4e16.png)
 
 
 # License
