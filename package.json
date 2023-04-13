@@ -22,12 +22,14 @@
     "url": "https://github.com/Hopperpop/node-red-contrib-ads-application"
   },
   "dependencies": {
-    "node-red-contrib-ads-client": "^1.1.1"
+    "node-red-contrib-ads-client": "^1.1.1",
+    "long": "*"
   },
   "devDependencies": {},
   "node-red": {
     "nodes": {
-      "ads-beckhoff-devicemanager": "src/ads-beckhoff-devicemanager.js"
+      "ads-beckhoff-devicemanager": "src/ads-beckhoff-devicemanager.js",
+      "ads-logger": "src/ads-logger.js"
     }
   },
   "files": [
